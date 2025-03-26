@@ -13,13 +13,13 @@
 \TLV
    $reset = *reset;
    
-   // Full adder
-   $xor = ( $in1 ^ $in2 );
-   $out = ( $xor ^ $carry_in );
+   // Full Adder
+      // SUM
+   $xor = ($in1 ^ $in2);
+   $out = ($carry_in ^ $xor);
    
-   $and1 = ( $xor && $carry_in );
-   $and2 = ( $in1 && $in2 );
-   $carry_out = ( $and1 || $and2 );
+      // Carry out
+   $carry_out = (($carry_in && $xor) || ($in1 && $in2));
    
    // Assert these to end simulation (before Makerchip cycle limit).
    *passed = *cyc_cnt > 40;
