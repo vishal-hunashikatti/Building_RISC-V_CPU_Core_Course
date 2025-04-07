@@ -11,17 +11,19 @@
    // stimulus support, and Verilator config.
    m5_makerchip_module   // (Expanded in Nav-TLV pane.)
 \TLV
+   $reset = *reset;
    
    $sum[31:0] = $val1[31:0] + $val2[31:0];
-   $diff[31:0] = $val1 - $val2;  // No need to declare range again for the same variables
-   $prod[31:0] = $val1 * $val2;
-   $quot[31:0] = $val1 / $val2;
+   $diff[31:0] = $val1[31:0] - $val2[31:0];
+   $prod[31:0] = $val1[31:0] * $val2[31:0];
+   $quot[31:0] = $val1[31:0] / $val2[31:0];
    
    $out[31:0] = $op[1:0] == 2'b00 ? $sum :
-                $op == 2'b01 ? $diff :
-                $op == 2'b10 ? $prod :
-                               $quot; // Default operation
-
+                $op[1:0] == 2'b01 ? $diff :
+                $op[1:0] == 2'b10 ? $prod :
+                $op[1:0] == 2'b00 ? $quot;
+                             
+   
    
    // Assert these to end simulation (before Makerchip cycle limit).
    *passed = *cyc_cnt > 40;

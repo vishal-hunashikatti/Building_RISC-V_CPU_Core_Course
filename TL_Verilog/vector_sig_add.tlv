@@ -13,7 +13,12 @@
 \TLV
    $reset = *reset;
    
-   $out[7:0] = $in1[6:0] + $in2[6:0];
+   $out1[7:0] = $in1[6:0] + $in2[6:0];
+   $out2[6:0] = $in1[6:0] - $in2[4:0];
+   $out3[6:0] = $in1[6:0] / $in2[2:0];
+   $out4[5:0] = $in1[2:0] * $in2[2:0]
+   $out5[6:0] = $in1[6:0] % $in2[2:0];  
+   
    
    // Assert these to end simulation (before Makerchip cycle limit).
    *passed = *cyc_cnt > 40;

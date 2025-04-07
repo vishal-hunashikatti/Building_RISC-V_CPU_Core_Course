@@ -18,7 +18,7 @@
    $xor = ($in1 ^ $in2);
    $out = ($carry_in ^ $xor);
    
-      // Carry out
+      // Carry out (combining expressions)
    $carry_out = (($carry_in && $xor) || ($in1 && $in2));
    
    // Assert these to end simulation (before Makerchip cycle limit).
