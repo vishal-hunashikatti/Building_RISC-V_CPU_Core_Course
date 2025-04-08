@@ -2,7 +2,7 @@
 
 ## File Structure and Tool Flow
 
-'''
+'
 TL-Verilog features are used to define the logic within a (System)Verilog module. Code comments below explain the parts of a TL-Verilog source file structured for use within Makerchip.
 
 \m4_TLV_version 1d --bestsv: tl-x.org
@@ -57,4 +57,4 @@ TL-Verilog features are used to define the logic within a (System)Verilog module
    // Back to SystemVerilog context to end the module.
    endmodule
 
-'''
+.
